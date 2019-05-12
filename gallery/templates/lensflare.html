@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+{%for picture in pictures%}
+<!--First row-->
+<div class="row">
+
+
+    <div id="mdb-lightbox-ui"></div>
+
+    <!--Full width lightbox-->
+    <div class="mdb-lightbox">
+        <p>{{picture.picture_name}}</p>
+        <p>{{picture.photographer}}</p>
+        <a href="{{picture.picture_image}}" data-size="781x1172">
+          <img src="{{picture.picture_image}}" class="img-fluid">
+        </a>
+        <p>{{picture.picture_description}}</p>
+        <p>{{picture.datep_posted}}</p>
+      
+    </div>
+    <!--/Full width lightbox-->
+
+
+
+</div>
+<!--/First row-->
+{%endfor%}
+{% endblock %}
