@@ -1,13 +1,19 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container">
-
-  <div class="row">
-
-
+<br><br><br>
+<div class="row">
+  <div class="col-md-8">
+    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+<div class="input-group style:padding 10%; color:white;">
+  <input type="text" class="form-control" placeholder="Search Pictures" name="image_name">
+  <div class="input-group-btn">
+    <br><br><br>
+    <button class="btn light-green darken-2" type="submit">Search<i class="glyphicon glyphicon-search"></i></button>
   </div>
-
-  <div class="row">
+</div>
+</form>
+</div>
+<div class="col-md-4">
 
     {% if images %}
     {% for image in images %}
@@ -22,6 +28,7 @@
     {% endfor %}
     {% endif %}
   </div>
+</div>
 </div>
 {% endblock %}
 
