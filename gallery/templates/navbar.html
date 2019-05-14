@@ -37,8 +37,8 @@
            </a>
            <div id="drop" class="dropdown-menu light-green darken-2" aria-labelledby="navbarDropdown"
              >
-             {% for locate in locations %}
-             <a class="dropdown-item" href="/location/{{location.id}}">{{location.locate}}</a>
+             {% for location in locations %}
+             <a class="dropdown-item" href="/location/{{location.id}}">{{location.location}}</a>
              {% endfor%}
            </div>
          </li>

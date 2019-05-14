@@ -6,7 +6,7 @@
 </div>
 <div class="row">
 {% for image in images %}
-<div class="col-md-3" style="padding: 4%">
+<div class="col-md-4" style="padding: 1%">
 
 <a class="link" data-toggle="modal" data-target="#{{image.image_name}}">
 
@@ -48,8 +48,7 @@
                     value="{{image.image_url.url}}" tabindex="0" data-trigger="focus" data-placement="top" type="button"
                     data-toggle='popover' data-content="Copied" class="btn btn-primary btn-sm" onclick="status(this)">
                     <i class="fas fa-copy"> Copy link</i></a></div>
-                <a target="_blank" href="https://facebook.com/"><button type="button" class="btn btn-primary btn-sm"><i
-                      class="fab fa-facebook"> Share</i></button></a>
+               
               </div>
             </div>
           </div>
@@ -62,6 +61,19 @@
   
  
   </div>
+  <script>
+    function copylink(value) {
+      console.log('hi yellow')
+
+      function handler(event) {
+        event.clipboardData.setData('text/plain', value);
+        event.preventDefault();
+        document.removeEventListener('copy', handler, true);
+      }
+      document.addEventListener('copy', handler, true);
+      document.execCommand('copy');
+    }
+  </script>
   
   {% endfor %}
   </div>

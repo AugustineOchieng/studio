@@ -39,7 +39,7 @@ def location(request, locate_id):
 
     try:
         locations=Location.get_location()
-        image_url=Image.objects.filter(locate=locate_id)
+        image_url=Image.objects.filter(location=locate_id)
     except Exception as e:
         raise Http404()
         assert False
