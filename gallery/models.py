@@ -8,6 +8,11 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
+    @classmethod
+    def get_location(cls):
+        locations=cls.objects.all()
+        return locations
+        
 class Category(models.Model):
     category = models.CharField(max_length = 30)
 
