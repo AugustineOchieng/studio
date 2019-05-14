@@ -1,5 +1,14 @@
 {%extends 'base.html'%}
 {% block content %}
+<div class="jumbotron bg-cover text-white"
+  style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://placeimg.com/1000/480/nature)">
+  <div class="container">
+    <h1 class="display-4">Prism Search</h1>
+    <h4>Find your story in a picture</h4>
+
+    <hr class="my-4">
+  </div>
+</div>
 <br><br><br>
 <div class="row">
   <div class="col-md-8">
@@ -8,7 +17,7 @@
   <input type="text" class="form-control" placeholder="Search Pictures" name="image_name">
   <div class="input-group-btn">
     <br><br><br>
-    <button class="btn light-green darken-2" type="submit">Search<i class="glyphicon glyphicon-search"></i></button>
+    <button class="btn light-green darken-2 text-white" type="submit">Search<i class="glyphicon glyphicon-search"></i></button>
   </div>
 </div>
 </form>
