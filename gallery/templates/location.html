@@ -1,0 +1,69 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<div class="row">
+  {%for image in images%}
+  <div class="col-md-4">
+    <div class=" view overlay ">
+
+      <a class="link" data-toggle="modal" data-target="#{{image.name}}">
+        <img class="img-fluid rgba-red-slight" src="{{image.image_url.url}}" alt="">
+        <div class="mask flex-center waves-effect waves-light">
+          <p class="white-text">{{image.name}}</p>
+        </div>
+        <div class="bottom-left">
+          <p>{{image.decription}} location: {{image.locate}} </p>
+        </div>
+
+      </a>
+
+
+
+
+    </div>
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="{{image.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+
+      <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}} <i>Taken on : {{image.upload_time}}</i>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="showImg" class="modal-body">
+            <img class="img-fluid" src="{{image.image.url}}" />
+          </div>
+          <div style="text-align:center" class="">
+            <i class="">{{image.decription}}</i> <i class="fas fa-map-marker-alt">{{image.locate}}</i>
+
+          </div>
+          <div style="text-align:center" class="modal-footer">
+            <div><i id='hide'>https://deluxure.herokuapp.com{{image.image_url.url}}</i><a id="{{image.id}}"
+                value="{{image.image_url.url}}" tabindex="0" data-trigger="focus" data-placement="top" type="button"
+                data-toggle='popover' data-content="Copied" class="btn btn-primary btn-sm" onclick="status(this)"> <i
+                  class="fas fa-copy"> Copy link</i></a></div>
+            <a target="_blank" href="https://facebook.com/"><button type="button" class="btn btn-primary btn-sm"><i
+                  class="fab fa-facebook"> Share</i></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  {%endfor%}
+  <!-- Button trigger modal -->
+
+
+</div>
+
+
