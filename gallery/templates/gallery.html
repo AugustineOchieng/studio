@@ -1,12 +1,22 @@
 {%extends 'base.html'%}
 
 {% block content %}
+<div class="jumbotron bg-cover text-white"
+  style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://placeimg.com/1000/480/nature)">
+  <div class="container">
+    <h1 class="display-4">Prism</h1>
+
+    <hr class="my-4">
+
+    <a class="btn light-green darken-2 btn-lg" href="#" role="button">Search Picture</a>
+  </div>
+</div>
 {{block.super}}
 
 
 <div class="row">
   {% for image in images %}
-  <div class="col-md-4" style="padding: 1%">
+  <div class="col-md-3" style="padding: 0.5%">
 
     <a class="link" data-toggle="modal" data-target="#{{image.image_name}}">
 
