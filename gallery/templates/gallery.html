@@ -5,77 +5,80 @@
 
 </div>
 <div class="row">
-{% for image in images %}
-<div class="col-md-4" style="padding: 1%">
+  {% for image in images %}
+  <div class="col-md-4" style="padding: 1%">
 
-<a class="link" data-toggle="modal" data-target="#{{image.image_name}}">
+    <a class="link" data-toggle="modal" data-target="#{{image.image_name}}">
 
-<div class="box">
-  <div class="card">
-    <div class="imgBx">
-      <img src="{{image.image_url.url}}" height="150px">
-    </div>
-   
-  </div>
-  
-  </div>
-</a>
-<!-- Modal -->
-        <div class="modal fade" id="{{image.image_name}}" tabindex="-1" role="dialog"
-          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
-          <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-
-
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">{{image.image_name}} <i>Taken on :
-                    {{image.date_posted}}</i></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div id="showImg" class="modal-body">
-                <img class="img-fluid" src="{{image.image_url.url}}" />
-              </div>
-              <div style="text-align:center" class="">
-                <i class="">{{image.image_decription}}</i> <i class="fas fa-map-marker-alt">{{image.location}}</i>
-
-              </div>
-              <div style="text-align:center" class="modal-footer">
-                <div><i id='hide'>https://deluxure.herokuapp.com{{image.image_url.url}}</i><a id="{{image.id}}"
-                    value="{{image.image_url.url}}" tabindex="0" data-trigger="focus" data-placement="top" type="button"
-                    data-toggle='popover' data-content="Copied" class="btn btn-primary btn-sm" onclick="status(this)">
-                    <i class="fas fa-copy"> Copy link</i></a></div>
-               
-              </div>
-            </div>
+      <div class="box">
+        <div class="card">
+          <div class="imgBx">
+            <img src="{{image.image_url.url}}" height="150px">
           </div>
+
         </div>
 
+      </div>
+    </a>
+    <!-- Modal -->
+    <div class="modal fade" id="{{image.image_name}}" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+      <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 
 
-  
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">{{image.image_name}} <i>Taken on :
+                {{image.date_posted}}</i></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="showImg" class="modal-body">
+            <img class="img-fluid" src="{{image.image_url.url}}" />
+          </div>
+          <div style="text-align:center" class="">
+            <i class="">{{image.image_decription}}</i> <i class="fas fa-map-marker-alt">{{image.location}}</i>
 
-  
- 
+          </div>
+          <div style="text-align:center" class="modal-footer">
+            <div>
+              <button value="https://studiobeta.herokuapp.com{{image.image_url.url}}" class="btn btn-primary btn-sm"
+                onclick="copylink(this.value)">
+                <i class="fas fa-copy"> Copy link</i></button></div>
+              
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
   </div>
-  <script>
-    function copylink(value) {
-      console.log('hi yellow')
 
-      function handler(event) {
-        event.clipboardData.setData('text/plain', value);
-        event.preventDefault();
-        document.removeEventListener('copy', handler, true);
-      }
-      document.addEventListener('copy', handler, true);
-      document.execCommand('copy');
-    }
-  </script>
-  
+
   {% endfor %}
-  </div>
+</div>
+<script>
+  function copylink(value){
+
   
-  {% endblock %}
+
+    function handler(event) {
+      event.clipboardData.setData('text/plain', value);
+      event.preventDefault();
+      document.removeEventListener('copy', handler, true);
+    }
+    document.addEventListener('copy', handler, true);
+    document.execCommand('copy');
+  }
+</script>
+
+{% endblock %}
