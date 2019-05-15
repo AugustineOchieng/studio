@@ -8,11 +8,17 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
-    @classmethod
-    def get_location(cls):
-        locations=cls.objects.all()
-        return locations
-        
+
+
+    def save_location(self):
+        self.save()
+
+    def display_location(self):
+        return self.location
+
+    def delete_location(self):
+        Location.objects.all().delete()
+
 class Category(models.Model):
     category = models.CharField(max_length = 30)
 
@@ -24,6 +30,17 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+
+    def save_category(self):
+        self.save()
+
+    def display_category(self):
+        return self.category
+
+    def delete_category(self):
+        Category.objects.all().delete()
+
+
 
 class Photographer(models.Model):
     first_name = models.CharField(max_length =30)
