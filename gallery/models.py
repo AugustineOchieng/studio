@@ -8,6 +8,10 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
+    @classmethod
+    def get_location(cls):
+        location = cls.objects.all()
+        return location
 
 
     def save_location(self):
