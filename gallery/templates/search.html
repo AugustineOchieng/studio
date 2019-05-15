@@ -22,6 +22,15 @@
 </div>
 </form>
 </div>
+    <div class="row">
+      {% if images%}
+      <h2>Found {{ images|length }} image of searched term {{message}}</h2>
+      {% else %}
+      <h2> Found 0 images for the search term {{message}}</h2>
+      {% endif %}
+    
+    </div>
+
 <div class="col-md-4">
 
     {% if images %}
